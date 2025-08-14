@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+header a img{
+    width: 30%;
+}
+
+h1{
+    color:rgb(139, 83, 172);
+    text-align: center;
+    font-size: 50px;
+}
+
+h2{
+    color:rgb(21, 111, 255);
+    text-align: center;
+    font-size: 30px;
+}
+
+h3{
+    color:rgb(0, 98, 255);
+    text-align: center;
+    font-size: 20px;
+}
+
+h4{
+    color:rgb(255, 191, 0);
+    text-align: center;
+    font-size: 25px;
+}
+
+p{
+    color:rgb(0, 0, 0);
+    text-align: center;
+    font-size: 20px;
+}
+
+.pagenda{
+    font-size: 12px; 
+    margin-top: 10px;
+}
+
+body{
+    font-family: "Poppins",
+    sans-serif
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+ol {
+    list-style: none;
+    padding-left: 0;
+}
+  
+.mi-seccion {
+    width: 100%;
+    max-width: none;
+}
+  
+.imagen-grande {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.foto{
+    width: 120px;
+
+}
+
+section{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/*section img {
+    width: 200%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }*/
+
+.barra-superior {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+  
+.logo img {
+ width: 200px; /* ajusta según tu preferencia */
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center;
+    list-style: none;
+    padding: 5px 5px;
+    gap: 30px;
+    margin: 0;
+  }
+  
+  .menu li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    transition: color 0.3s;
+  }
+  
+  .menu li a:hover {
+    color: #007bff;
+  }
+
+.grig-container{
+    min-height: 100dvh;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header header"
+      "main   aside"
+      "footer footer";
+    gap: 20px;
+    padding: 20px;
+}
+  
+  /* GRID items (hijos) asignan su área */
+  .item.header { grid-area: header; }
+  .item.main   { grid-area: main;   }
+  .item.aside  { grid-area: aside;  }
+  .item.footer { grid-area: footer; }
+  
+  .header{
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* flex */
+    gap: 16px; /* box modeling */
+  }
+
+  .main{
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px; /* box model */
+    display: grid; /* Internamente, organizamos secciones con grid simple */
+    gap: 24px;
+  }
+
+  .aside{
+    display: grid;
+    gap: 20px;
+  }
+
+  /* ==========
+   GALLERY (página grilla.html)
+   ========== */
+.section-title{ 
+    margin-bottom: 8px; 
+}
+.gallery{
+  display: grid; /* GRID para la galería */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.tile{
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;               /* FLEX dentro de la tile */
+  flex-direction: column;
+}
+.tile img{ width: 100%; height: 160px; object-fit: cover; display: block; }
+.tile__body{ padding: 12px; display: flex; flex-direction: column; gap: 6px; }
+
+
+   /* ==========
+   FOOTER (Flexbox)
+   ========== */
+.footer{
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 16px;
+    display: flex;              /* FLEX */
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+.footer small{ color: var(--muted); }
+
+  /* ==========
+   MEDIA QUERIES (MOBILE)
+   Repite el proceso en mobile: layout en 1 columna y componentes reajustados
+   ========== 
+@media (max-width: 768px){
+    .layout{
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto 1fr auto;
+      grid-template-areas:
+        "header"
+        "aside"
+        "main"
+        "footer";
+      gap: 16px;
+      padding: 12px;
+    } */
+  
+    /* Header: nav en multiple línea si hace falta 
+    .header{ flex-wrap: wrap; gap: 10px; }
+    .menu{ flex-wrap: wrap; justify-content: flex-start; }
+
+    
+    /* ==========
+   MEDIA QUERY (DESKTOP GRANDE opcional)
+   ========== 
+@media (min-width: 1200px){
+    .layout{
+      grid-template-columns: 1fr 360px;
+    }
+  }*/
