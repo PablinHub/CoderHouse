@@ -1,0 +1,131 @@
+
+:root {
+  --primary: #6f42c1;   /* morado */
+  --accent: #0d6efd;    /* azul */
+  --accent-light: #e9ecef; /* gris claro */
+  --dark: #222;         /* gris oscuro */
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
+}
+
+.text-accent{color:var(--accent);}
+.bg-accent-light{background:var(--accent-light);}
+.btn-primary{background:var(--primary); border-color:var(--primary); border-radius: .75rem;}
+.btn-primary:hover{filter:brightness(1.05);}
+.card {
+  border: 0;
+  border-radius: 1rem;
+}
+.card img {
+  height: 200px;
+  object-fit: contain;
+  background-color: #ffffff; /* relleno detrás si sobra espacio */
+  object-position: top;  /* asegura que la parte superior siempre se vea */
+}
+@media (max-width: 576px) {
+  .card img {
+    height: 100px;
+  }
+}
+.hero-gradient{background: linear-gradient(135deg, var(--primary), var(--accent));}
+.hero-accent{background: linear-gradient(135deg, var(--primary), #8b5cf6);}
+
+.full-image img {
+  width: 100%;
+  height: 480px;          /* o la altura que prefieras */
+  object-fit: cover;      /* recorta para llenar */
+  object-position: top;   /* mantiene la parte de arriba visible, recorta solo abajo */
+  display: block;
+  margin: 0;
+}
+
+
+/* Estilo de enlaces */
+.navbar .nav-link {
+  color: #333 !important;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  transition: color .3s;
+}
+
+.navbar .nav-link:hover {
+  color: #007bff !important;
+}
+
+/* Tamaño del logo (si es <img class="logo"> dentro de .navbar-brand) */
+.navbar .navbar-brand .logo {
+  width: 200px;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 576px) {
+  .navbar .navbar-brand .logo {
+    max-width: 120px;
+  }
+}
+
+.card-img-top {
+  height: 100px;          /* ajusta la altura según quieras */
+  object-fit: contain;    /* muestra toda la imagen dentro, sin recorte */
+  background-color: #f8f9fa; /* opcional: color de fondo para rellenar */
+}
+
+.card .card-body {
+  text-align: center;   /* centra el contenido */
+}
+
+.card .card-title {
+  font-weight: 700;     /* negrita */
+}
+
+.back {
+  margin: 30px;
+  padding: 0;              /* quita espacio extra */
+}
+
+.back iframe {
+  display: block;
+  border: none;            /* sin borde */
+  border-radius: 0;        /* sin esquinas redondeadas */
+  width: 100%;             /* ocupa todo el ancho */
+  height: 100%;            /* ocupa todo el alto dentro del ratio */
+}
+
+/**
+.navbar .navbar-brand .logo{
+  width: 200px;
+}
+.navbar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  align-items: center;
+  list-style: none;
+  padding: 5px 5px;
+  gap: 30px;
+  margin: 0;
+}
+.navbar-nav li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  transition: color 0.3s;
+}
+
+.navbar-nav li a:hover {
+  color: #007bff;
+}
+
+.card-img-top {
+  height: 100px;       
+  object-fit: cover;   
+}*/
