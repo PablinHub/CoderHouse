@@ -1,0 +1,20 @@
+// Media queries "down" (max-width)
+@mixin down($breakpoint) {
+    @media (max-width: $breakpoint) { @content; }
+  }
+  
+  // Sombra suave reutilizable
+  @mixin soft-card {
+    border: 1px solid #eee;
+    border-radius: $radius-lg;
+    background: $card-bg;
+    box-shadow: $shadow-soft;
+  }
+  
+  // Botón básico (para variantes)
+  @mixin btn-base {
+    border-radius: $radius-btn;
+    border: 1px solid transparent;
+    transition: filter .2s ease;
+    &:hover { filter: brightness(1.05); }
+  }

@@ -1,157 +1,199 @@
-
-:root {
-  --primary: #6f42c1;   /* morado */
-  --accent: #0d6efd;    /* azul */
-  --accent-light: #e9ecef; /* gris claro */
-  --dark: #222;         /* gris oscuro */
-}
+@charset "UTF-8";
+/* Reset mínimo */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
-  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
+:root {
+  /* Exponemos como CSS variables por compatibilidad/temas futuros */
+  --primary: #6f42c1;
+  --accent: #0d6efd;
+  --accent-light: #e9ecef;
+  --dark: #222;
 }
 
-.text-accent{color:var(--accent);}
-.bg-accent-light{background:var(--accent-light);}
-.btn-primary{background:var(--primary); border-color:var(--primary); border-radius: .75rem;}
-.btn-primary:hover{filter:brightness(1.05);}
-.card {
-  border: 0;
-  border-radius: 1rem;
-}
-.card img {
-  height: 200px;
-  object-fit: contain;
-  background-color: #ffffff; /* relleno detrás si sobra espacio */
-  object-position: top;  /* asegura que la parte superior siempre se vea */
+html, body {
+  overflow-x: hidden;
 }
 
-.hero-gradient{background: linear-gradient(135deg, var(--primary), var(--accent));}
-.hero-accent{background: linear-gradient(135deg, var(--primary), #8b5cf6);}
-
-.full-image img {
-  width: 100%;
-  height: 480px;          /* o la altura que prefieras */
-  object-fit: cover;      /* recorta para llenar */
-  object-position: top;   /* mantiene la parte de arriba visible, recorta solo abajo */
-  display: block;
-  margin: 0;
+body {
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Estilo de enlaces */
+/* Utilidades heredadas */
+.text-accent {
+  color: var(--accent);
+}
+
+.bg-accent-light {
+  background: var(--accent-light);
+}
+
+/* Enlaces del navbar */
 .navbar .nav-link {
   color: #333 !important;
   font-weight: bold;
   font-family: Arial, sans-serif;
-  transition: color .3s;
+  transition: color 0.3s;
 }
-
 .navbar .nav-link:hover {
   color: #007bff !important;
 }
-
-/* Tamaño del logo (si es <img class="logo"> dentro de .navbar-brand) */
 .navbar .navbar-brand .logo {
   width: 200px;
   height: auto;
   display: block;
 }
-
-.card-img-top {
-  height: 100px;          /* ajusta la altura según quieras */
-  object-fit: contain;    /* muestra toda la imagen dentro, sin recorte */
-  background-color: #f8f9fa; /* opcional: color de fondo para rellenar */
+@media (max-width: 576px) {
+  .navbar .navbar-brand .logo {
+    max-width: 110px;
+  }
 }
 
-.card .card-body {
-  text-align: center;   /* centra el contenido */
+/* Hero gradients */
+.hero-gradient {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+}
+@media (max-width: 992px) {
+  .hero-gradient .display-5 {
+    font-size: 2.25rem;
+  }
 }
 
-.card .card-title {
-  font-weight: 700;     /* negrita */
+.hero-accent {
+  background: linear-gradient(135deg, var(--primary), #8b5cf6);
 }
 
-.back {
-  margin: 30px;
-  padding: 0;              /* quita espacio extra */
-}
-
-.back iframe {
+/* Imagen full width */
+.full-image img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: top;
   display: block;
-  border: none;            /* sin borde */
-  border-radius: 0;        /* sin esquinas redondeadas */
-  width: 100%;             /* ocupa todo el ancho */
-  height: 100%;            /* ocupa todo el alto dentro del ratio */
+  margin: 0;
+}
+@media (max-width: 992px) {
+  .full-image img {
+    height: 360px;
+  }
+}
+@media (max-width: 576px) {
+  .full-image img {
+    height: 280px;
+  }
 }
 
-.badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .75rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+/* Contenedores: resguardo lateral */
+main > section .container {
+  padding-inline: 0.75rem;
 }
-.badges li {
-  padding: .5rem .75rem;
-  border: 1px solid var(--accent);
-  border-radius: 999px;
-  font-size: .95rem;
+
+/* Botón primario */
+.btn-primary {
+  border-radius: 0.75rem;
+  border: 1px solid transparent;
+  transition: filter 0.2s ease;
+}
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Cards */
+.card {
+  border: 0;
+  border-radius: 1rem;
   background: #fff;
 }
+.card .card-body {
+  text-align: center;
+}
+.card .card-title {
+  font-weight: 700;
+}
+.card img {
+  height: 200px;
+  object-fit: contain;
+  background-color: #ffffff;
+  object-position: top;
+}
+@media (max-width: 576px) {
+  .card img {
+    height: 100px;
+  }
+}
 
-/* Fila de videos con Flexbox (proyectos.html) */
+/* Sección video (proyectos) con Flexbox */
 .video-row {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
 }
 .video-row .video {
-  flex: 1 1 380px;              /* crece, encoge, ancho base */
+  flex: 1 1 380px;
   min-width: 280px;
 }
 
-/* ----------- CSS GRID: grilla de habilidades ----------- */
+/* Badges (chips) con Flexbox */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.badges li {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+/* Grid de habilidades */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
-.skill {
+.skills-grid .skill {
   border: 1px solid #eee;
   border-radius: 1rem;
-  padding: 1rem;
   background: #fff;
-  box-shadow: 0 2px 12px rgba(0,0,0,.04);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  padding: 1rem;
 }
-
-/* ----------- MEDIA QUERIES personalizadas ----------- */
 @media (max-width: 992px) {
-  /* Grid pasa a 2 columnas en tablets */
-  .skills-grid { grid-template-columns: repeat(2, 1fr); }
-
-  /* Ajuste del hero en pantallas medianas */
-  .hero-gradient .display-5 { font-size: 2.25rem; }
-  .full-image img { height: 360px; }
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-
 @media (max-width: 576px) {
-  /* Grid pasa a 1 columna en móviles */
-  .skills-grid { grid-template-columns: 1fr; }
-
-  /* Logo más pequeño en móvil (además del ajuste que ya tienes) */
-  .navbar .navbar-brand .logo { max-width: 110px; }
-
-  /* Hero y full image más compactos */
-  .hero-gradient { padding-top: 2rem; padding-bottom: 2rem; }
-  .full-image img { height: 280px; }
-  
-  .card img {
-    height: 100px;
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
 }
 
+/* Embeds */
+.back {
+  margin: 30px;
+  padding: 0;
+}
+.back iframe {
+  display: block;
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Clases utilitarias y ajustes menores reutilizables */
+
+/*# sourceMappingURL=style.css.map */

@@ -29,11 +29,7 @@ body{
   background-color: #ffffff; /* relleno detrás si sobra espacio */
   object-position: top;  /* asegura que la parte superior siempre se vea */
 }
-@media (max-width: 576px) {
-  .card img {
-    height: 100px;
-  }
-}
+
 .hero-gradient{background: linear-gradient(135deg, var(--primary), var(--accent));}
 .hero-accent{background: linear-gradient(135deg, var(--primary), #8b5cf6);}
 
@@ -45,7 +41,6 @@ body{
   display: block;
   margin: 0;
 }
-
 
 /* Estilo de enlaces */
 .navbar .nav-link {
@@ -64,12 +59,6 @@ body{
   width: 200px;
   height: auto;
   display: block;
-}
-
-@media (max-width: 576px) {
-  .navbar .navbar-brand .logo {
-    max-width: 120px;
-  }
 }
 
 .card-img-top {
@@ -99,33 +88,70 @@ body{
   height: 100%;            /* ocupa todo el alto dentro del ratio */
 }
 
-/**
-.navbar .navbar-brand .logo{
-  width: 200px;
-}
-.navbar-nav {
+.badges {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; 
-  align-items: center;
-  list-style: none;
-  padding: 5px 5px;
-  gap: 30px;
+  gap: .75rem;
   margin: 0;
+  padding: 0;
+  list-style: none;
 }
-.navbar-nav li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  font-family: 'Arial', sans-serif;
-  transition: color 0.3s;
-}
-
-.navbar-nav li a:hover {
-  color: #007bff;
+.badges li {
+  padding: .5rem .75rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-size: .95rem;
+  background: #fff;
 }
 
-.card-img-top {
-  height: 100px;       
-  object-fit: cover;   
-}*/
+/* Fila de videos con Flexbox (proyectos.html) */
+.video-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.video-row .video {
+  flex: 1 1 380px;              /* crece, encoge, ancho base */
+  min-width: 280px;
+}
+
+/* ----------- CSS GRID: grilla de habilidades ----------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.skill {
+  border: 1px solid #eee;
+  border-radius: 1rem;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,.04);
+}
+
+/* ----------- MEDIA QUERIES personalizadas ----------- */
+@media (max-width: 992px) {
+  /* Grid pasa a 2 columnas en tablets */
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Ajuste del hero en pantallas medianas */
+  .hero-gradient .display-5 { font-size: 2.25rem; }
+  .full-image img { height: 360px; }
+}
+
+@media (max-width: 576px) {
+  /* Grid pasa a 1 columna en móviles */
+  .skills-grid { grid-template-columns: 1fr; }
+
+  /* Logo más pequeño en móvil (además del ajuste que ya tienes) */
+  .navbar .navbar-brand .logo { max-width: 110px; }
+
+  /* Hero y full image más compactos */
+  .hero-gradient { padding-top: 2rem; padding-bottom: 2rem; }
+  .full-image img { height: 280px; }
+  
+  .card img {
+    height: 100px;
+  }
+}
+
