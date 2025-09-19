@@ -1,2 +1,44 @@
+# ===============================
+# Node / npm
+# ===============================
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+
+# ===============================
+# Sass / Compilados
+# ===============================
+*.css.map
+*.sass.map
+*.scssc
+.sass-cache/
+
+# ===============================
+# SO y editores
+# ===============================
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# VS Code
+.vscode/
+.history/
+
+# ===============================
+# Producción (si tuvieras dist/build)
+# ===============================
+dist/
+build/
